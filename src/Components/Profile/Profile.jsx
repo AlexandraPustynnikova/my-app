@@ -1,13 +1,18 @@
 import React from "react";
 import classes from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
-const Profile = () => {
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import { updateNewPostText } from "../../Redux/store";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+const Profile = (props) => {
   return (
-    <div className={classes.content}>
-      <img src="https://haleakalaecotours.com/wp-content/uploads/2019/04/hawaii-dangerous-waves.jpg" />
-
-      <div>ava+description</div>
-      <MyPosts />
+    <div>
+      <ProfileInfo
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
+      <MyPostsContainer /*store={props.store}*/ />
     </div>
   );
 };
